@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use "@angular/material" as mat;
+@import "assets/styles/abstracts/fonts";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  font-size: $font-size;
+}
+
+@include mat.core();
+
+$light-primary: mat.define-palette(mat.$red-palette);
+$light-accent: mat.define-palette(mat.$amber-palette);
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $light-primary,
+      accent: $light-accent,
+    ),
+  )
+);
+
+$dark-primary: mat.define-palette(mat.$pink-palette);
+$dark-accent: mat.define-palette(mat.$blue-grey-palette);
+
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $dark-primary,
+      accent: $dark-accent,
+    ),
+  )
+);
+
+@include mat.core-theme($dark-theme);
+@include mat.all-component-themes($dark-theme);
+
+.light-theme {
+  @include mat.core-theme($light-theme);
+  @include mat.all-component-themes($light-theme);
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav ul {
+  @include reset-list;
+}
+
+@mixin square($size, $radius: 0) {
+  width: $size;
+  height: $size;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+.avatar {
+  @include square(100px, $radius: 40x);
+}
+
+.user-image {
+  @include square(150px, $radius: 50x);
+}

@@ -1,0 +1,48 @@
+// @use "../assets/styles/abstracts/fonts" as fs;
+// @use "assets/styles/abstracts/main";
+@use "../assets/styles/abstracts/fonts" as *;
+
+.content {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: $font-size;
+}
+
+// h1 {
+//   font-size: main.$font-size;
+// }
+
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
